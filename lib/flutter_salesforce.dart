@@ -5,20 +5,14 @@ class ChatRequest {
     this.firstName,
     this.lastName,
     this.email,
-    this.username,
-    this.queueStyle = QueueStyle.None,
   });
-  QueueStyle queueStyle;
   String? firstName;
   String? lastName;
   String? email;
-  String? username;
   Map<String, dynamic> toJson() => {
         'firstName': firstName,
         'lastName': lastName,
         'email': email,
-        'username': username,
-        'queueStyle': queueStyle,
       };
 }
 
@@ -40,8 +34,6 @@ class Credentials {
         'liveAgentPod': liveAgentPod,
       };
 }
-
-enum QueueStyle { EstimatedWaitTime, None, Position }
 
 class FlutterSalesforce {
   static const MethodChannel _channel = MethodChannel('flutter_salesforce');

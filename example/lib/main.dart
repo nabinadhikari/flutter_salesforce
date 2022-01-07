@@ -26,7 +26,22 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             TextButton(
-              onPressed: () async {},
+              onPressed: () async {
+                var s = FlutterSalesforce(
+                  credentials: Credentials(
+                    buttonId: '<button id>',
+                    deploymentId: '<deployment Id>',
+                    liveAgentPod: '<live Agent Pod>',
+                    orgId: '<org Id>',
+                  ),
+                );
+                var req = ChatRequest(
+                  email: 'mr.nabinadhikari@gmail.com',
+                  firstName: 'Nabin',
+                  lastName: 'Adhikari',
+                );
+                s.initiateChat(req);
+              },
               child: const Text('Salesforce chat'),
             ),
           ],

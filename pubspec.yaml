@@ -22,5 +22,5 @@ flutter:
       android:
         package: com.nabinadhikari.flutter_salesforce
         pluginClass: FlutterSalesforcePlugin
-      ios:
-        pluginClass: FlutterSalesforcePlugin
+      # ios:
+      #   pluginClass: FlutterSalesforcePlugin

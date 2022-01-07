@@ -20,6 +20,11 @@ import com.salesforce.android.chat.ui.ChatUIClient;
 import com.salesforce.android.chat.ui.ChatUIConfiguration;
 import com.salesforce.android.chat.ui.model.QueueStyle;
 import com.salesforce.android.service.common.utilities.control.Async;
+import com.salesforce.android.chat.core.model.ChatEntity;
+import com.salesforce.android.chat.core.model.ChatEntityField;
+import com.salesforce.android.chat.core.model.ChatUserData;
+import com.salesforce.android.chat.core.model.PreChatEntityField;
+import com.salesforce.android.chat.ui.model.PreChatTextInputField;
 
 public class FlutterSalesforcePlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
   private MethodChannel channel;
@@ -64,18 +69,13 @@ public class FlutterSalesforcePlugin implements FlutterPlugin, MethodCallHandler
       String DEPLOYMENT_ID = (String) credentials.get("deploymentId");
       String BUTTON_ID = (String) credentials.get("buttonId");
       String LIVE_AGENT_POD = (String) credentials.get("liveAgentPod");
-
       assert(call.argument("request") instanceof Map);
       Map request = (Map) call.argument("request");
+
       ChatConfiguration chatConfiguration = 
         new ChatConfiguration.Builder(ORG_ID, BUTTON_ID, 
-                                DEPLOYMENT_ID, LIVE_AGENT_POD,)
+                                DEPLOYMENT_ID, LIVE_AGENT_POD)
                                 .build();
-      ChatUIConfiguration uiConfig = new ChatUIConfiguration.Builder()
-        .chatConfiguration(chatConfiguration)
-        .queueStyle(QueueStyle.EstimatedWaitTime) // Use estimated wait time
-        .defaultToMinimized(false)                // Start in full-screen mode
-        .build();
       ChatUI.configure(ChatUIConfiguration.create(chatConfiguration))
         .createClient(mContext)
         .onResult(new Async.ResultHandler<ChatUIClient>() {
