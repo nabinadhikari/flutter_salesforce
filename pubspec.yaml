@@ -1,7 +1,7 @@
 name: flutter_salesforce
 description: Flutter plugin that wraps the native SalesForce Chat SDKs.
 version: 0.0.1
-homepage:
+homepage: https://github.com/nabinadhikari/flutter_salesforce
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
