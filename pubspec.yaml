@@ -1,0 +1,26 @@
+name: flutter_salesforce
+description: Flutter plugin that wraps the native SalesForce Chat SDKs.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.nabinadhikari.flutter_salesforce
+        pluginClass: FlutterSalesforcePlugin
+      ios:
+        pluginClass: FlutterSalesforcePlugin
